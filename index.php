@@ -42,9 +42,6 @@ echo json_encode($platform->getChain(), JSON_PRETTY_PRINT);
 
 echo '</pre>';
 
-//Close the database connection
-$platform->database_close();
-
 // Performance testing
 $finish = microtime(true);
 echo 'Script execution duration:'.sprintf($finish - $start);
