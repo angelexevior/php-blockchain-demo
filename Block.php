@@ -14,6 +14,7 @@ class Block {
     public $hash;
     public $previousHash;
     
+    //Used when creating a new block
     function block($index, $timestamp, $data, $previoushash = null){
         $this->index = $index;
         $this->timestamp = $timestamp;
@@ -29,6 +30,8 @@ class Block {
      */
     public function calculateHash()
     {
+        //Using sha256. Could be altered with any encryption algorithm
+        //*tip For php the argon2 library is fast and efficient
         return hash("sha256", $this->index.$this->previousHash.$this->timestamp.((string)$this->data).$this->nonce);
     }
     
