@@ -16,7 +16,7 @@ class Platform {
     //Initializes the chain stdclass (object) with the genesis block
     public function __construct() {
         $this->chain = [$this->createGenesisBlock()];
-        $this->difficulty = 4;
+        $this->difficulty = 2;
     }
 
     //Generate genesis block
@@ -46,7 +46,7 @@ class Platform {
     //Used above by push()
     public function mine($block) {
         //Sample difficulty algorithm
-        //Keep generating new hash until has begins with 0000 
+        //Keep generating new hash until hash begins with 0000 
         //(How many zeroes depends on difficulty specified in constructor)
         while (substr($block->hash, 0, $this->difficulty) !== str_repeat("0", $this->difficulty)) {
             $block->nonce++;
