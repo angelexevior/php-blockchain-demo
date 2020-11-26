@@ -24,7 +24,7 @@ echo "<br/>Chain valid: ".($platform->isValid() ? "true" : "false").'<br/>';
 
 //Let's get the last block
 echo '<br/>Last block: ';
-print_r($platform->getLastBlock());
+echo json_encode($platform->getLastBlock(), JSON_PRETTY_PRINT);
 echo '<br/>';
 
 //display chain
@@ -37,6 +37,7 @@ echo 'changing amount in chain';
 $platform->chain[3]->data = "amount: 1000";
 $platform->chain[3]->hash = $platform->chain[1]->calculateHash();
 
+//Revalidate chain (false)
 echo "<br/>Chain valid: ".($platform->isValid() ? "true" : "false").'<br/>';
 echo json_encode($platform->getChain(), JSON_PRETTY_PRINT);
 
